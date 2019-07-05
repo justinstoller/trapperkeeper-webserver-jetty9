@@ -1,5 +1,5 @@
 stage("Build") {
-  node("worker") {
+  node("unit") {
     sh "echo success"
   }
 }
@@ -29,7 +29,7 @@ stage("Test") {
 }
 
 stage("Deploy") {
-  node("worker") {
+  node("unit") {
     sh "echo success"
   }
 }
