@@ -18,10 +18,11 @@ stage("Build") {
 //
 
 stage("Test") {
-  node("worker") {
+  node("unit") {
+    checkout scm
     sh '''
-      # source ~/jdk_switcher.sh
-      # jdk_switcher use openjdk8
+      source ~/jdk_switcher.sh
+      jdk_switcher use openjdk8
       lein with-profile +ci -U test :all
     '''
   }
